@@ -17,16 +17,16 @@ router.get( "/", async (req, res) => {
     res.json(clientes)
 })
 
-//Actualizar cliente
+//Actualizar clientes
 router.put( "/:id", async (req, res) => {
     const clienteActualizado = await Cliente.findByIdAndUpdate( req.params.id, req.body, {new: true} )
     res.json(clienteActualizado)
 })
 
-//Eliminar alumno
+//Eliminar cliente
 router.delete( "/:id", async (req, res) => {
     await Cliente.findByIdAndDelete( req.params.id )
-    res.json({message: "Cliente eliminado"})
+    res.json({message: "cliente eliminado"})
 })
 
 export default router
