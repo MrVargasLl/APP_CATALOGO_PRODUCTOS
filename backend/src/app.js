@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import { config } from 'dotenv'
 import clienteRouter from '../routes/clientes.routes.js'
+import authRoutes from '../routes/auth.routes.js'
 
 config()
 
@@ -12,6 +13,7 @@ const PORT = process.env.PORT
 app.use( express.json() )
 app.use( cors() )
 app.use( '/api/clientes', clienteRouter )
+app.use( '/api', authRoutes )
 
 /* mongoose.connect( process.env.MONGO_URI.then( () => console.log("Conectado a MongoDB") ) )
  */
